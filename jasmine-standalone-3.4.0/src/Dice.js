@@ -15,18 +15,21 @@ class Dice {
 } 
 
 roll(){
-        this.value= Math.round(Math.random() * (this.sides -1) + 1);
+    
+       return this.value= Math.round(Math.random() * (this.sides -1) + 1);
     }
 
     setProbabilities(arr){
+        let list = [];
         for(var i =0; i<arr.length;i++){
             if(Number.isInteger(arr[i])===false) throw new 
             Error("only integer values allowed").message;
         }
     this.probability=arr;
     this.error_Handling();
-
-
+    for(var index=0;index<this.sides;index++){
+            list.push(index);
+        }
     }
 
 
@@ -36,7 +39,7 @@ roll(){
 
         for(let a=0;a<this.sides;a++)
         {
-            if(this.probability[a]<0) throw new Error ("negative probabilities not allowed").message;
+            if(this.probability[a]<=0) throw new Error ("negative probabilities not allowed").message;
             sum+=this.probability[a];
         }
         if(sum<=0) throw new Error ("probability sum must be greater than 0").message;
@@ -47,16 +50,8 @@ roll(){
 
 }
 
-
-
-;
-// dice.roll();
-
-// console.log(`The value of dice = ${dice.value}`);
-
-// console.log(dice);
-let dice2= new Dice(6);
-let arr2=dice2.setProbabilities([1,1,2.5,3,1,1]);
+let dice2= new Dice(3);
+dice2.roll();
+dice2.setProbabilities([0,3,5]);
 console.log(dice2);
 
-// console.log(dice2.error_Handln

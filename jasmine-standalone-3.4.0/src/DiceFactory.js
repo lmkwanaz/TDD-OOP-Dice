@@ -16,9 +16,9 @@ module.exports = class DiceFactory
 
 
 }
-let dice= new Dice(6);
-let factory20=new DiceFactory(dice);
-let die20 = factory20.makeDice();
-let anotherDie20= factory20.makeDice();
+// let dice= new Dice(6);
+// let factory20=new DiceFactory(dice);
+// let die20 = factory20.makeDice();
+// let anotherDie20= factory20.makeDice();
 
-console.log(die20);
+// console.log(die20);
