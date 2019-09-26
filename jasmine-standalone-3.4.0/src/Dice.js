@@ -1,4 +1,5 @@
-class Dice{
+let DiceFactory = require('./DiceFactory');
+class Dice {
    
     constructor(sides){
         this.sides=sides;
@@ -48,14 +49,14 @@ roll(){
 
 
 
-let dice= new Dice(6);
-dice.roll();
+;
+// dice.roll();
 
-console.log(`The value of dice = ${dice.value}`);
+// console.log(`The value of dice = ${dice.value}`);
 
 // console.log(dice);
 let dice2= new Dice(6);
 let arr2=dice2.setProbabilities([1,1,2.5,3,1,1]);
 console.log(dice2);
 
-// console.log(dice2.error_Handlng);
+// console.log(dice2.error_Handln
