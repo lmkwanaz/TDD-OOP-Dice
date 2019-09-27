@@ -4,7 +4,7 @@ class Dice {
     constructor(sides){
         this.sides=sides;
         this.value;
-
+        
         if(arguments.length==2)
         {
             this.probability = arguments[1]; 
@@ -14,22 +14,29 @@ class Dice {
         
 } 
 
+
 roll(){
+    let getRandom = Math.round(Math.random() * (this.sides -1) + 1);
     
-       return this.value= Math.round(Math.random() * (this.sides -1) + 1);
+       return this.value = getRandom;
     }
 
     setProbabilities(arr){
-        let list = [];
+         let list = [];
         for(var i =0; i<arr.length;i++){
             if(Number.isInteger(arr[i])===false) throw new 
             Error("only integer values allowed").message;
         }
     this.probability=arr;
     this.error_Handling();
-    for(var index=0;index<this.sides;index++){
+    for(var index=1;index<=this.sides;index++){
+          for(let b=0;b<this.probability[index-1];b++)
+          {
             list.push(index);
+          }
         }
+        console.log(list[this.roll()]);
+       
     }
 
 
@@ -52,6 +59,7 @@ roll(){
 
 let dice2= new Dice(3);
 dice2.roll();
-dice2.setProbabilities([0,3,5]);
+dice2.setProbabilities([1,3,5]);
 console.log(dice2);
+
 
