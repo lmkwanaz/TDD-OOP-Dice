@@ -1,24 +1,20 @@
-let Dice = require('./Dice');
+// let Dice = require('./Dice');
 
-module.exports = class DiceFactory
+/*module.exports =*//*let DiceFactory =*/ class DiceFactory
 {
-    constructor(dice)
-    {
-        this.dice=dice
-    
-        
+  // Cconstructor that accepts the dice as a parameter
+  constructor(dice) {
+    this.dice = new Dice(dice);
+    if (arguments.length == 2) {
+      this.dice = new Dice(dice, arguments[1]);
     }
+  }
 
-    makeDice(){
-        return this.dice;
-    }
-    
-
+  // Creating a dice
+  makeDice() {
+    return this.dice;
+  }
 
 }
-// let dice= new Dice(6);
-// let factory20=new DiceFactory(dice);
-// let die20 = factory20.makeDice();
-// let anotherDie20= factory20.makeDice();
 
-// console.log(die20);
+// module.exports = DiceFactory;
