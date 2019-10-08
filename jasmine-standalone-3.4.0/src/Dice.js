@@ -4,6 +4,7 @@ class Dice {
     constructor(sides){
         this.sides=sides;
         this.value;
+        this.list = [];
         
         if(arguments.length==2)
         {
@@ -16,9 +17,13 @@ class Dice {
 
 
 roll(){
-    let getRandom = Math.round(Math.random() * (this.sides -1) + 1);
+      let getrand = [Math.round(Math.random() * this.sides)]
+     
+      
+    this.value = getrand;
     
-       return this.value = getRandom;
+    
+       return this.value 
     }
 
     setProbabilities(arr){
@@ -33,14 +38,18 @@ roll(){
     }
 
     update() {
-        let list = [];
+ 
         for (var index = 1; index <= this.sides; index++) {
           for (let b = 0; b < this.probability[index - 1]; b++) {
-            list.push(index);
+            this.list.push(index);
           }
         }
        
-        this.value = list[this.roll()];
+        
+        let see = this.list[this.roll()];
+        this.value = see;
+        
+        
       }
 
 
@@ -62,7 +71,6 @@ roll(){
 }
 
 let dice2= new Dice(6);
-dice2.roll();
 dice2.setProbabilities([1,1,1,1,1,2]);
 console.log(dice2);
 
